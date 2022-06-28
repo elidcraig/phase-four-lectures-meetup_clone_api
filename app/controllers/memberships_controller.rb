@@ -1,11 +1,7 @@
 class MembershipsController < ApplicationController
   def create
-    membership = current_user.memberships.create(membership_params)
-    if membership.valid?
-      render json: membership, status: :created
-    else
-      render json: { errors: membership.errors }, status: :unprocessable_entity
-    end
+    membership = current_user.memberships.create!(membership_params)
+    render json: membership, status: :created
   end
 
   private

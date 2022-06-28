@@ -9,12 +9,8 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.create( group_params )
-    if group.valid?
-      render json: group, status: :created
-    else
-      render json: { errors: group.errors }, status: :unprocessable_entity
-    end
+    group = Group.create!( group_params )
+    render json: group, status: :created
   end
 
   private
