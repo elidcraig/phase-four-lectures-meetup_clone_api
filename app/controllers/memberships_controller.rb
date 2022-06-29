@@ -4,6 +4,11 @@ class MembershipsController < ApplicationController
     render json: membership, status: :created
   end
 
+  def destroy
+    Membership.find(params[:id]).destroy
+    head :no_content
+  end
+
   private
 
   def membership_params

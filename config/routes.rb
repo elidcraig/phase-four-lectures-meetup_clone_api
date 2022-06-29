@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :rsvps, only: [:create]
-  resources :memberships, only: [:create]
-  resources :events, only: [:create]
+  resources :rsvps, only: [:create, :update, :destroy]
+  resources :memberships, only: [:create, :destroy]
+  resources :events
   resources :groups, only: [:index, :show, :create]
-  resources :users
+  resources :users, only: [:index, :update]
 end
