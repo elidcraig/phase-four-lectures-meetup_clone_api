@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    render json: Event.find(params[:id])
+    render json: Event.find(params[:id]), serializer: EventDetailSerializer
   end
 
   def create
